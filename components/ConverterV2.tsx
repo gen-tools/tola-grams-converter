@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { tolaToGrams, gramsToTola } from '@/lib/conversions';
 
 interface ConverterV2Props {
@@ -19,35 +19,50 @@ export default function ConverterV2({
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [decimals, setDecimals] = useState(4);
+  const lastEdited = useRef<1 | 2>(1);
 
   const isTolaToGrams = type === 'tola-to-grams';
   const label1 = isTolaToGrams ? 'Tola' : 'Grams';
   const label2 = isTolaToGrams ? 'Grams' : 'Tola';
   const CONVERSION_CONSTANT = 11.6638038;
 
-  const convert = (val: string, fromTola: boolean) => {
+  const doConvert = (val: string, fromTola: boolean, dp: number): string => {
     const num = parseFloat(val);
     if (isNaN(num) || num < 0) return '';
     const result = fromTola ? tolaToGrams(num) : gramsToTola(num);
-    return result.toFixed(decimals);
+    return result.toFixed(dp);
   };
+
+  useEffect(() => {
+    if (lastEdited.current === 1) {
+      setInput2(doConvert(input1, isTolaToGrams, decimals));
+    } else {
+      setInput1(doConvert(input2, !isTolaToGrams, decimals));
+    }
+  }, [decimals]);
 
   const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
+    lastEdited.current = 1;
     setInput1(val);
-    setInput2(convert(val, isTolaToGrams));
+    setInput2(doConvert(val, isTolaToGrams, decimals));
   };
 
   const handleInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
+    lastEdited.current = 2;
     setInput2(val);
-    setInput1(convert(val, !isTolaToGrams));
+    setInput1(doConvert(val, !isTolaToGrams, decimals));
   };
 
   const handleQuickPick = (val: number) => {
-    setInput1(String(val));
-    setInput2(convert(String(val), isTolaToGrams));
+    lastEdited.current = 1;
+    const str = String(val);
+    setInput1(str);
+    setInput2(doConvert(str, isTolaToGrams, decimals));
   };
+
+  const hasResult = input1 !== '' && input2 !== '';
 
   return (
     <div className="w-full">
@@ -64,7 +79,7 @@ export default function ConverterV2({
           {/* Decimals Control */}
           <div className="flex gap-3 items-center mb-8 bg-slate-800/30 rounded-lg p-4 w-fit">
             <button
-              onClick={() => setDecimals(Math.max(0, decimals - 1))}
+              onClick={() => setDecimals(d => Math.max(0, d - 1))}
               className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
               type="button"
             >
@@ -74,7 +89,7 @@ export default function ConverterV2({
               {decimals}
             </div>
             <button
-              onClick={() => setDecimals(Math.min(10, decimals + 1))}
+              onClick={() => setDecimals(d => Math.min(10, d + 1))}
               className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
               type="button"
             >
@@ -89,12 +104,12 @@ export default function ConverterV2({
                 {label1}
               </label>
               <input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={input1}
                 onChange={handleInput1}
                 placeholder="0"
                 className="premium-input px-4 w-full py-4 rounded-xl text-lg"
-                inputMode="decimal"
               />
               <p className="text-xs text-slate-500 mt-2">Enter amount in {label1}</p>
             </div>
@@ -104,12 +119,12 @@ export default function ConverterV2({
                 {label2}
               </label>
               <input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={input2}
                 onChange={handleInput2}
                 placeholder="0"
                 className="premium-input px-4 w-full py-4 rounded-xl text-lg"
-                inputMode="decimal"
               />
               <p className="text-xs text-slate-500 mt-2">Converted amount</p>
             </div>
@@ -130,7 +145,7 @@ export default function ConverterV2({
           </div>
 
           {/* Output Tiles */}
-          {input1 && (
+          {hasResult && (
             <div className="mt-8 space-y-4">
               <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
                 <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
@@ -172,7 +187,7 @@ export default function ConverterV2({
           {/* Result Card - Always Visible */}
           <div className="glass-card p-6 rounded-2xl glow-gold border border-amber-500/20">
             <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">Result</h3>
-            {input1 ? (
+            {hasResult ? (
               <>
                 <p className="text-white font-bold md:text-5xl text-4xl leading-tight">{input2}</p>
                 <p className="text-slate-300 text-sm mt-3 font-medium">{input1} {label1} = {input2} {label2}</p>
@@ -195,7 +210,7 @@ export default function ConverterV2({
                   <a
                     key={i}
                     href={r.link}
-                    className="block transition-colors hover:text-amber-400 flex items-center gap-2"
+                    className="flex items-center gap-2 transition-colors hover:text-amber-400"
                   >
                     <span className="text-amber-300 opacity-60">✦</span> {r.name}
                   </a>
