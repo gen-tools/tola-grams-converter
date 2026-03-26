@@ -10,19 +10,20 @@ interface ConverterV2Props {
   regions?: Array<{ name: string; link: string }>;
 }
 
-export default function ConverterV2({ 
-  type = 'tola-to-grams', 
+export default function ConverterV2({
+  type = 'tola-to-grams',
   title,
   subtitle,
-  regions 
+  regions
 }: ConverterV2Props) {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [decimals, setDecimals] = useState(2);
+  const [decimals, setDecimals] = useState(4);
 
   const isTolaToGrams = type === 'tola-to-grams';
   const label1 = isTolaToGrams ? 'Tola' : 'Grams';
   const label2 = isTolaToGrams ? 'Grams' : 'Tola';
+  const CONVERSION_CONSTANT = 11.6638038;
 
   const convert = (val: string, fromTola: boolean) => {
     const num = parseFloat(val);
@@ -43,20 +44,48 @@ export default function ConverterV2({
     setInput1(convert(val, !isTolaToGrams));
   };
 
+  const handleQuickPick = (val: number) => {
+    setInput1(String(val));
+    setInput2(convert(String(val), isTolaToGrams));
+  };
+
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-dark-800 rounded-lg border border-primary-900 p-4 md:p-6">
-          <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary-400 mb-1">
+        {/* Main Calculator */}
+        <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">
               {title}
             </h2>
-            {subtitle && <p className="text-sm text-gray-400">{subtitle}</p>}
+            {subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {/* Decimals Control */}
+          <div className="flex gap-3 items-center mb-8 bg-slate-800/30 rounded-lg p-4 w-fit">
+            <button
+              onClick={() => setDecimals(Math.max(0, decimals - 1))}
+              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+              type="button"
+            >
+              −
+            </button>
+            <div className="text-amber-400 font-semibold bg-amber-500/20 px-4 py-1.5 rounded-lg min-w-12 text-center">
+              {decimals}
+            </div>
+            <button
+              onClick={() => setDecimals(Math.min(10, decimals + 1))}
+              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+
+          {/* Input Fields */}
+          <div className="mt-8 grid gap-6 md:grid-cols-2 mb-8">
             <div>
-              <label className="text-xs font-bold text-primary-400 uppercase">
+              <label className="text-slate-300 font-medium block mb-2 text-sm">
                 {label1}
               </label>
               <input
@@ -64,13 +93,14 @@ export default function ConverterV2({
                 value={input1}
                 onChange={handleInput1}
                 placeholder="0"
-                className="w-full mt-2 px-3 py-2 text-base bg-dark-700 border border-primary-800 rounded text-gray-100"
+                className="premium-input px-4 w-full py-4 rounded-xl text-lg"
                 inputMode="decimal"
               />
+              <p className="text-xs text-slate-500 mt-2">Enter amount in {label1}</p>
             </div>
 
             <div>
-              <label className="text-xs font-bold text-primary-400 uppercase">
+              <label className="text-slate-300 font-medium block mb-2 text-sm">
                 {label2}
               </label>
               <input
@@ -78,72 +108,96 @@ export default function ConverterV2({
                 value={input2}
                 onChange={handleInput2}
                 placeholder="0"
-                className="w-full mt-2 px-3 py-2 text-base bg-dark-700 border border-primary-800 rounded text-gray-100"
+                className="premium-input px-4 w-full py-4 rounded-xl text-lg"
                 inputMode="decimal"
               />
+              <p className="text-xs text-slate-500 mt-2">Converted amount</p>
             </div>
           </div>
 
-          <div className="flex gap-2 mb-4">
+          {/* Quick Picks */}
+          <div className="flex gap-2 items-center text-sm flex-wrap mb-8">
             {[1, 5, 10, 50].map(val => (
               <button
                 key={val}
-                onClick={() => {
-                  setInput1(String(val));
-                  setInput2(convert(String(val), isTolaToGrams));
-                }}
-                className="px-3 py-1.5 text-xs font-bold bg-dark-700 hover:bg-primary-700 text-gray-300 border border-primary-800 rounded"
+                onClick={() => handleQuickPick(val)}
+                className="px-4 pill-btn py-2 rounded-full hover:text-amber-400 font-medium cursor-pointer active:scale-95 transition-all"
+                type="button"
               >
                 {val}
               </button>
             ))}
           </div>
 
+          {/* Output Tiles */}
           {input1 && (
-            <div className="p-4 bg-dark-700 rounded border border-primary-600">
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div>
-                  <p className="text-xs text-gray-500 mb-1">From</p>
-                  <p className="text-2xl font-bold text-primary-400">{input1}</p>
+            <div className="mt-8 space-y-4">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+                <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                  <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">{label1}</p>
+                  <p className="text-white font-bold text-3xl md:text-4xl">{input1}</p>
+                  <p className="text-slate-500 text-xs mt-2">{input1} {label1}</p>
                 </div>
-                <div>
-                  <p className="text-xs text-gray-500 mb-1">To</p>
-                  <p className="text-2xl font-bold text-primary-400">{input2}</p>
+                <div className="glass-card-light p-6 rounded-xl text-center flex items-center justify-center border border-white/5">
+                  <p className="text-slate-400 text-xl">↔</p>
+                </div>
+                <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                  <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">{label2}</p>
+                  <p className="text-white font-bold text-3xl md:text-4xl">{input2}</p>
+                  <p className="text-slate-500 text-xs mt-2">{input2} {label2}</p>
+                </div>
+              </div>
+
+              <div className="glass-card-light p-6 rounded-xl border border-white/5">
+                <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">Formula</p>
+                <div className="space-y-2 text-center">
+                  <p className="text-slate-300 text-sm">
+                    {isTolaToGrams ? (
+                      <>{label1} × <span className="text-cyan-400 font-semibold">{CONVERSION_CONSTANT}</span> = {label2}</>
+                    ) : (
+                      <>{label1} ÷ <span className="text-cyan-400 font-semibold">{CONVERSION_CONSTANT}</span> = {label2}</>
+                    )}
+                  </p>
+                  <p className="text-white font-mono text-sm font-semibold">
+                    {input1} {isTolaToGrams ? '×' : '÷'} {CONVERSION_CONSTANT} = {input2}
+                  </p>
                 </div>
               </div>
             </div>
           )}
         </div>
 
-        <div className="lg:col-span-1 space-y-4">
-          {input1 && (
-            <div className="bg-dark-800 rounded-lg border border-primary-900 p-4">
-              <h3 className="text-xs font-bold text-primary-400 uppercase mb-3">
-                Result
-              </h3>
-              <div className="space-y-2">
-                <div className="p-2 bg-dark-700 rounded text-center">
-                  <p className="text-xl font-bold text-primary-400">{input1}</p>
-                  <p className="text-xs text-gray-400">{label1}</p>
-                </div>
-                <div className="text-center text-gray-500">⟷</div>
-                <div className="p-2 bg-dark-700 rounded text-center">
-                  <p className="text-xl font-bold text-primary-300">{input2}</p>
-                  <p className="text-xs text-gray-400">{label2}</p>
-                </div>
+        {/* Sidebar */}
+        <div className="lg:col-span-1 space-y-6">
+          {/* Result Card - Always Visible */}
+          <div className="glass-card p-6 rounded-2xl glow-gold border border-amber-500/20">
+            <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">Result</h3>
+            {input1 ? (
+              <>
+                <p className="text-white font-bold md:text-5xl text-4xl leading-tight">{input2}</p>
+                <p className="text-slate-300 text-sm mt-3 font-medium">{input1} {label1} = {input2} {label2}</p>
+              </>
+            ) : (
+              <div className="flex items-center justify-center py-8">
+                <p className="text-slate-500 text-sm">Enter an amount to see result</p>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
+          {/* Other Regions Card */}
           {regions && (
-            <div className="bg-dark-800 rounded-lg border border-primary-900 p-4">
-              <h3 className="text-xs font-bold text-primary-400 uppercase mb-2">
-                Regions
+            <div className="glass-card p-6 rounded-2xl text-sm">
+              <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">
+                {isTolaToGrams ? 'Regional Rates' : 'Other Regions'}
               </h3>
-              <div className="space-y-1">
-                {regions.slice(0, 3).map((r, i) => (
-                  <a key={i} href={r.link} className="block text-xs text-gray-400 hover:text-primary-400 py-1">
-                    → {r.name}
+              <div className="space-y-2 text-slate-300">
+                {regions.map((r, i) => (
+                  <a
+                    key={i}
+                    href={r.link}
+                    className="block transition-colors hover:text-amber-400 flex items-center gap-2"
+                  >
+                    <span className="text-amber-300 opacity-60">✦</span> {r.name}
                   </a>
                 ))}
               </div>

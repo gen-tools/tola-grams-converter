@@ -27,7 +27,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#111827" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-dark-900 text-gray-200">
+      <body className="bg-slate-900 text-gray-200">
         <Header />
         <main className="w-full">
           {children}
