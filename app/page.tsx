@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ConverterV2 from '@/components/ConverterV2';
+import ConverterV2 from '@/components/ConverterV2Dynamic';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
