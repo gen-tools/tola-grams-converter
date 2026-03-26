@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function IndiaPage() {
   return (
-    <div className="w-full bg-dark-900">
-      <section className="py-8 bg-dark-900 border-b border-primary-900">
+    <div className="w-full bg-slate-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
           <ConverterV2
             type="tola-to-grams"
@@ -23,38 +23,53 @@ export default function IndiaPage() {
             regions={[
               { name: 'Pakistan', link: '/pakistan' },
               { name: 'Nepal', link: '/nepal' },
+              { name: 'Dubai', link: '/dubai' },
+              { name: 'UAE', link: '/uae' },
+              { name: 'UK', link: '/uk' },
             ]}
           />
         </div>
       </section>
 
-      <section className="py-6 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-2xl mx-auto text-gray-300 text-sm">
-            <h2 className="text-xl font-bold text-primary-400 mb-3">About Tola in India</h2>
-            <p className="mb-2">
-              India is the world's largest gold consumer, and tola remains important in Indian jewelry markets. Whether buying from local jewelers or investing in gold ornaments, this converter helps with accurate conversions.
-            </p>
-            <p className="text-primary-300 font-bold">1 Tola = 11.6638 Grams</p>
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-2xl font-bold gradient-text mb-6">About Tola in India</h2>
+            <div className="space-y-5 text-slate-300 leading-relaxed">
+              <p>
+                India is the world's largest gold consumer, and tola remains important in Indian jewelry markets. Whether buying from local jewelers or investing in gold ornaments, this converter helps with accurate conversions.
+              </p>
+              <p>
+                <span className="text-amber-400 font-semibold">1 Tola = 11.6638 Grams</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-6 bg-dark-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <h2 className="text-lg font-bold text-primary-400 mb-4 text-center">Other Countries</h2>
-          <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto">
-            <Link href="/pakistan" className="p-3 border border-primary-800 rounded text-center text-sm hover:bg-dark-800">
-              <h3 className="font-bold text-primary-400">Pakistan</h3>
+          <h2 className="text-2xl font-bold gradient-text mb-8 text-center">Other Countries</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/pakistan" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">Pakistan</h3>
+              <p className="text-slate-400 text-sm">Tola converter for Pakistani gold market</p>
             </Link>
-            <Link href="/nepal" className="p-3 border border-primary-800 rounded text-center text-sm hover:bg-dark-800">
-              <h3 className="font-bold text-primary-400">Nepal</h3>
+            <Link href="/nepal" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">Nepal</h3>
+              <p className="text-slate-400 text-sm">Tola converter for Nepali gold market</p>
             </Link>
-            <Link href="/uae" className="p-3 border border-primary-800 rounded text-center text-sm hover:bg-dark-800">
-              <h3 className="font-bold text-primary-400">UAE</h3>
+            <Link href="/dubai" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">Dubai</h3>
+              <p className="text-slate-400 text-sm">Tola converter for Dubai gold trading</p>
             </Link>
-            <Link href="/dubai" className="p-3 border border-primary-800 rounded text-center text-sm hover:bg-dark-800">
-              <h3 className="font-bold text-primary-400">Dubai</h3>
+            <Link href="/uae" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">UAE</h3>
+              <p className="text-slate-400 text-sm">Tola converter for UAE markets</p>
+            </Link>
+            <Link href="/uk" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">UK</h3>
+              <p className="text-slate-400 text-sm">Tola converter for UK gold trading</p>
             </Link>
           </div>
         </div>
