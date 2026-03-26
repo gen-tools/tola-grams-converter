@@ -29,6 +29,22 @@ export default function ConverterV2({
   const label2 = isTolaToGrams ? 'Grams' : 'Tola';
   const CONVERSION_CONSTANT = 11.6638038;
 
+  const doConvert = (val: string, fromTola: boolean, dp: number): string => {
+    const num = parseFloat(val);
+    if (isNaN(num) || num < 0) return '';
+    const result = fromTola ? tolaToGrams(num) : gramsToTola(num);
+    return result.toFixed(dp);
+  };
+
+  useEffect(() => {
+    if (!mounted) return;
+    if (lastEdited.current === 1) {
+      setInput2(doConvert(input1, isTolaToGrams, decimals));
+    } else {
+      setInput1(doConvert(input2, !isTolaToGrams, decimals));
+    }
+  }, [decimals]);
+
   if (!mounted) {
     return (
       <div className="w-full">
@@ -53,21 +69,6 @@ export default function ConverterV2({
       </div>
     );
   }
-
-  const doConvert = (val: string, fromTola: boolean, dp: number): string => {
-    const num = parseFloat(val);
-    if (isNaN(num) || num < 0) return '';
-    const result = fromTola ? tolaToGrams(num) : gramsToTola(num);
-    return result.toFixed(dp);
-  };
-
-  useEffect(() => {
-    if (lastEdited.current === 1) {
-      setInput2(doConvert(input1, isTolaToGrams, decimals));
-    } else {
-      setInput1(doConvert(input2, !isTolaToGrams, decimals));
-    }
-  }, [decimals]);
 
   const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
