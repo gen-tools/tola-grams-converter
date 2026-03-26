@@ -110,6 +110,7 @@ export default function ConverterV2({
                 onChange={handleInput1}
                 placeholder="0"
                 className="premium-input px-4 w-full py-4 rounded-xl text-lg"
+                suppressHydrationWarning
               />
               <p className="text-xs text-slate-500 mt-2">Enter amount in {label1}</p>
             </div>
@@ -125,6 +126,7 @@ export default function ConverterV2({
                 onChange={handleInput2}
                 placeholder="0"
                 className="premium-input px-4 w-full py-4 rounded-xl text-lg"
+                suppressHydrationWarning
               />
               <p className="text-xs text-slate-500 mt-2">Converted amount</p>
             </div>

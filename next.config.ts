@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   allowedDevOrigins: ['*.riker.replit.dev', '*.replit.dev'],
@@ -35,15 +37,13 @@ const nextConfig: NextConfig = {
       headers: [
         {
           key: "Cache-Control",
-          value: "public, max-age=3600, stale-while-revalidate=86400",
+          value: isDev
+            ? "no-store, no-cache, must-revalidate"
+            : "public, max-age=3600, stale-while-revalidate=86400",
         },
         {
           key: "X-Content-Type-Options",
           value: "nosniff",
-        },
-        {
-          key: "X-Frame-Options",
-          value: "SAMEORIGIN",
         },
       ],
     },
@@ -52,7 +52,9 @@ const nextConfig: NextConfig = {
       headers: [
         {
           key: "Cache-Control",
-          value: "public, max-age=31536000, immutable",
+          value: isDev
+            ? "no-store"
+            : "public, max-age=31536000, immutable",
         },
       ],
     },

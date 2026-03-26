@@ -61,11 +61,13 @@ export default function Converter({ type = 'tola-to-grams', title }: ConverterPr
             </label>
             <div className="relative">
               <input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={input}
                 onChange={handleInputChange}
                 placeholder={`0 ${inputLabel}`}
                 className="w-full px-6 py-4 text-lg bg-dark-700 border-2 border-primary-800 rounded-lg focus:outline-none focus:border-primary-400 text-gray-100 placeholder-gray-500 transition duration-350 hover:border-primary-600"
+                suppressHydrationWarning
               />
               <span className="absolute right-6 top-4 text-primary-400 font-bold text-lg">
                 {inputLabel}
