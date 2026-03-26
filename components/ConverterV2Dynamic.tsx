@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 
 const ConverterV2Dynamic = dynamic(() => import('./ConverterV2'), { ssr: false });
