@@ -97,7 +97,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-center border-t border-gray-800 pt-6">
-          <p className="text-gray-400 text-xs">
+          <p className="text-gray-400 text-xs" suppressHydrationWarning>
             © {new Date().getFullYear()} Tola Converter. 1 Tola = 11.6638 Grams. All rights reserved.
           </p>
         </div>
