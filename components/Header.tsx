@@ -75,6 +75,12 @@ export default function Header() {
                   <Link href="/uae" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                     UAE
                   </Link>
+                  <Link href="/dubai" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
+                    Dubai
+                  </Link>
+                  <Link href="/uk" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
+                    UK
+                  </Link>
                 </div>
               </div>
             </div>
@@ -117,6 +123,17 @@ export default function Header() {
                 <Link href="/what-is-tola" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
                   What is Tola?
                 </Link>
+              </div>
+              <div className="px-3 py-2">
+                <p className="text-xs uppercase tracking-wider text-slate-500 font-medium mb-2">Regions</p>
+                <div className="space-y-1">
+                  <Link href="/pakistan" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>Pakistan</Link>
+                  <Link href="/india" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>India</Link>
+                  <Link href="/nepal" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>Nepal</Link>
+                  <Link href="/dubai" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>Dubai</Link>
+                  <Link href="/uae" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>UAE</Link>
+                  <Link href="/uk" className="block px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>UK</Link>
+                </div>
               </div>
             </div>
           </div>
