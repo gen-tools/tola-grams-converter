@@ -1,195 +1,191 @@
 'use client';
 
-import { useState } from 'react';
-import type { Metadata } from 'next';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 
-// Note: Metadata is only supported in server components
-// Using 'use client' for form interactivity here
+const TOLA_TO_MASHA = 12;
 
 export default function TolaToMashaPage() {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [decimals, setDecimals] = useState(2);
+  const [decimals, setDecimals] = useState(4);
+  const lastEdited = useRef<1 | 2>(1);
 
-  const TOLA_TO_MASHA = 12;
-
-  const handleInput1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setInput1(value);
-    
-    const num = parseFloat(value);
-    if (num > 0) {
-      const result = num * TOLA_TO_MASHA;
-      setInput2(result.toFixed(decimals));
-    } else {
-      setInput2('');
-    }
+  const doConvert = (val: string, toMasha: boolean, dp: number): string => {
+    const num = parseFloat(val);
+    if (isNaN(num) || num < 0) return '';
+    const result = toMasha ? num * TOLA_TO_MASHA : num / TOLA_TO_MASHA;
+    return result.toFixed(dp);
   };
 
-  const handleInput2Change = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setInput2(value);
-    
-    const num = parseFloat(value);
-    if (num > 0) {
-      const result = num / TOLA_TO_MASHA;
-      setInput1(result.toFixed(decimals));
-    } else {
-      setInput1('');
-    }
+  const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    lastEdited.current = 1;
+    setInput1(val);
+    setInput2(doConvert(val, true, decimals));
   };
 
-  const handleQuickPick = (value: number) => {
-    setInput1(String(value));
-    const result = value * TOLA_TO_MASHA;
-    setInput2(result.toFixed(decimals));
+  const handleInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    lastEdited.current = 2;
+    setInput2(val);
+    setInput1(doConvert(val, false, decimals));
   };
 
-  const quickValues = [1, 5, 10, 50, 100];
+  const handleQuickPick = (val: number) => {
+    lastEdited.current = 1;
+    const str = String(val);
+    setInput1(str);
+    setInput2(doConvert(str, true, decimals));
+  };
+
+  const hasResult = input1 !== '' && input2 !== '';
 
   return (
-    <div className="w-full bg-dark-900">
-      {/* Converter Section - Direct Start */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+    <div className="w-full bg-slate-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="w-full animate-fade-in-up">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Main Converter */}
-              <div className="lg:col-span-2 bg-dark-800 rounded-xl border border-primary-900 p-8 shadow-lg-custom">
-                <div className="flex justify-between items-start mb-8">
-                  <div className="flex-1">
-                    <h2 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300 mb-2">
-                      Tola to Masha
-                    </h2>
-                    <p className="text-gray-400 text-sm">Convert tola to masha and vice versa</p>
-                  </div>
-                  
-                  <div className="flex items-center gap-2 bg-dark-700 rounded-lg p-2 border border-primary-800">
-                    <button
-                      onClick={() => setDecimals(Math.max(0, decimals - 1))}
-                      className="p-2 hover:bg-dark-600 rounded transition text-primary-400 hover:text-primary-300"
-                    >
-                      −
-                    </button>
-                    <span className="w-12 text-center text-primary-400 font-bold">{decimals}</span>
-                    <button
-                      onClick={() => setDecimals(Math.min(8, decimals + 1))}
-                      className="p-2 hover:bg-dark-600 rounded transition text-primary-400 hover:text-primary-300"
-                    >
-                      +
-                    </button>
-                  </div>
+          <div className="w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Main Calculator */}
+              <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
+                <div className="mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                    Tola to Masha
+                  </h2>
+                  <p className="text-sm text-slate-400">Convert tola to masha and vice versa</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {/* Decimals Control */}
+                <div className="flex gap-3 items-center mb-8 bg-slate-800/30 rounded-lg p-4 w-fit">
+                  <button
+                    onClick={() => setDecimals(d => Math.max(0, d - 1))}
+                    className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+                    type="button"
+                  >
+                    −
+                  </button>
+                  <div className="text-amber-400 font-semibold bg-amber-500/20 px-4 py-1.5 rounded-lg min-w-12 text-center">
+                    {decimals}
+                  </div>
+                  <button
+                    onClick={() => setDecimals(d => Math.min(10, d + 1))}
+                    className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+                    type="button"
+                  >
+                    +
+                  </button>
+                </div>
+
+                {/* Input Fields */}
+                <div className="mt-8 grid gap-6 md:grid-cols-2 mb-8">
                   <div>
-                    <label className="block text-sm font-bold text-primary-400 mb-3 uppercase tracking-wider">
+                    <label className="text-slate-300 font-medium block mb-2 text-sm">
                       Tola
                     </label>
                     <input
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       value={input1}
-                      onChange={handleInput1Change}
+                      onChange={handleInput1}
                       placeholder="0"
-                      className="w-full px-4 py-3 text-lg bg-dark-700 border-2 border-primary-800 rounded-lg focus:outline-none focus:border-primary-500 text-gray-100 placeholder-gray-600 transition"
+                      className="premium-input px-4 w-full py-4 rounded-xl text-lg"
                     />
-                    <p className="text-xs text-gray-500 mt-2">Type here to update tola instantly.</p>
+                    <p className="text-xs text-slate-500 mt-2">Enter amount in Tola</p>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-primary-400 mb-3 uppercase tracking-wider">
+                    <label className="text-slate-300 font-medium block mb-2 text-sm">
                       Masha
                     </label>
                     <input
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       value={input2}
-                      onChange={handleInput2Change}
+                      onChange={handleInput2}
                       placeholder="0"
-                      className="w-full px-4 py-3 text-lg bg-dark-700 border-2 border-primary-800 rounded-lg focus:outline-none focus:border-primary-500 text-gray-100 placeholder-gray-600 transition"
+                      className="premium-input px-4 w-full py-4 rounded-xl text-lg"
                     />
-                    <p className="text-xs text-gray-500 mt-2">Type here to update masha instantly.</p>
+                    <p className="text-xs text-slate-500 mt-2">Converted amount</p>
                   </div>
                 </div>
 
-                <div className="mb-8">
-                  <label className="block text-sm font-bold text-primary-400 mb-3 uppercase tracking-wider">
-                    Quick Picks
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {quickValues.map((value, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleQuickPick(value)}
-                        className="px-4 py-2 bg-dark-700 hover:bg-primary-700 text-gray-300 hover:text-white border border-primary-800 hover:border-primary-500 rounded-lg transition text-sm font-bold hover:shadow-md-custom"
-                      >
-                        {value} tola
-                      </button>
-                    ))}
-                  </div>
+                {/* Quick Picks */}
+                <div className="flex gap-2 items-center text-sm flex-wrap mb-8">
+                  {[1, 5, 10, 50].map(val => (
+                    <button
+                      key={val}
+                      onClick={() => handleQuickPick(val)}
+                      className="px-4 pill-btn py-2 rounded-full hover:text-amber-400 font-medium cursor-pointer active:scale-95 transition-all"
+                      type="button"
+                    >
+                      {val}
+                    </button>
+                  ))}
                 </div>
 
-                {(input1 || input2) && (
-                  <div className="p-6 bg-dark-700 rounded-lg border border-primary-600 grid grid-cols-2 gap-6 animate-fade-in-up">
-                    <div className="text-center">
-                      <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">From</p>
-                      <p className="text-3xl font-black text-primary-400">{input1 || '—'}</p>
-                      <p className="text-gray-400 text-sm mt-1">tola</p>
+                {/* Output Tiles */}
+                {hasResult && (
+                  <div className="mt-8 space-y-4">
+                    <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+                      <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                        <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">Tola</p>
+                        <p className="text-white font-bold text-3xl md:text-4xl">{input1}</p>
+                        <p className="text-slate-500 text-xs mt-2">{input1} Tola</p>
+                      </div>
+                      <div className="glass-card-light p-6 rounded-xl text-center flex items-center justify-center border border-white/5">
+                        <p className="text-slate-400 text-xl">↔</p>
+                      </div>
+                      <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                        <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">Masha</p>
+                        <p className="text-white font-bold text-3xl md:text-4xl">{input2}</p>
+                        <p className="text-slate-500 text-xs mt-2">{input2} Masha</p>
+                      </div>
                     </div>
-                    
-                    <div className="text-center">
-                      <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">To</p>
-                      <p className="text-3xl font-black text-primary-400">{input2 || '—'}</p>
-                      <p className="text-gray-400 text-sm mt-1">masha</p>
+
+                    <div className="glass-card-light p-6 rounded-xl border border-white/5">
+                      <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">Formula</p>
+                      <div className="space-y-2 text-center">
+                        <p className="text-slate-300 text-sm">
+                          Tola × <span className="text-cyan-400 font-semibold">{TOLA_TO_MASHA}</span> = Masha
+                        </p>
+                        <p className="text-white font-mono text-sm font-semibold">
+                          {input1} × {TOLA_TO_MASHA} = {input2}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 )}
-
-                <div className="mt-6 p-4 bg-dark-700 rounded-lg border border-primary-800 text-xs text-gray-400 font-mono">
-                  <p className="mb-1">masha = tola × 12</p>
-                  <p>tola = masha ÷ 12</p>
-                </div>
               </div>
 
-              {/* Result Sidebar */}
+              {/* Sidebar */}
               <div className="lg:col-span-1 space-y-6">
-                <div className="bg-dark-800 rounded-xl border border-primary-900 p-6 shadow-lg-custom">
-                  <h3 className="text-primary-400 font-bold text-sm uppercase tracking-wider mb-4">
-                    Result
-                  </h3>
-                  <div className="space-y-3">
-                    {input1 ? (
-                      <>
-                        <div className="text-center py-4 bg-dark-700 rounded-lg border border-primary-700">
-                          <p className="text-2xl font-black text-primary-400">{input1}</p>
-                          <p className="text-gray-400 text-sm">tola</p>
-                        </div>
-                        <div className="text-center text-gray-500">
-                          <span className="text-2xl">⟷</span>
-                        </div>
-                        <div className="text-center py-4 bg-dark-700 rounded-lg border border-primary-700">
-                          <p className="text-2xl font-black text-primary-300">{input2}</p>
-                          <p className="text-gray-400 text-sm">masha</p>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="text-center py-8 text-gray-600">
-                        <p className="text-sm">Enter a value to see results</p>
-                      </div>
-                    )}
-                  </div>
+                {/* Result Card */}
+                <div className="glass-card p-6 rounded-2xl glow-gold border border-amber-500/20">
+                  <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">Result</h3>
+                  {hasResult ? (
+                    <>
+                      <p className="text-white font-bold md:text-5xl text-4xl leading-tight">{input2}</p>
+                      <p className="text-slate-300 text-sm mt-3 font-medium">{input1} Tola = {input2} Masha</p>
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-center py-8">
+                      <p className="text-slate-500 text-sm">Enter an amount to see result</p>
+                    </div>
+                  )}
                 </div>
 
-                <div className="bg-dark-800 rounded-xl border border-primary-900 p-6 shadow-lg-custom">
-                  <h3 className="text-primary-400 font-bold text-sm uppercase tracking-wider mb-4">
+                {/* Related Tools */}
+                <div className="glass-card p-6 rounded-2xl text-sm">
+                  <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">
                     Related Tools
                   </h3>
-                  <div className="space-y-2">
-                    <Link href="/" className="block px-4 py-2 rounded-lg bg-dark-700 hover:bg-primary-700 text-gray-300 hover:text-white transition text-sm font-medium">
-                      → Tola to Grams
+                  <div className="space-y-2 text-slate-300">
+                    <Link href="/" className="flex items-center gap-2 transition-colors hover:text-amber-400">
+                      <span className="text-amber-300 opacity-60">✦</span> Tola to Grams
                     </Link>
-                    <Link href="/grams-to-tola" className="block px-4 py-2 rounded-lg bg-dark-700 hover:bg-primary-700 text-gray-300 hover:text-white transition text-sm font-medium">
-                      → Grams to Tola
+                    <Link href="/grams-to-tola" className="flex items-center gap-2 transition-colors hover:text-amber-400">
+                      <span className="text-amber-300 opacity-60">✦</span> Grams to Tola
                     </Link>
                   </div>
                 </div>
@@ -199,29 +195,22 @@ export default function TolaToMashaPage() {
         </div>
       </section>
 
-      {/* Info Section */}
-      <section className="py-16 md:py-20 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-500 mb-8">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-2xl font-bold gradient-text mb-6">
               Understanding Tola to Masha
             </h2>
-
-            <div className="space-y-6 text-gray-300 text-sm">
-              <p className="leading-relaxed">
-                Tola and masha are two traditional weight units used in South Asia. While tola is the more commonly used unit for larger quantities, masha is used for smaller measurements. Understanding the relationship between these units is important for jewelry and precious metals work.
+            <div className="space-y-5 text-slate-300 leading-relaxed">
+              <p>
+                Tola and masha are two traditional weight units used in South Asia. While tola is the more commonly used unit for larger quantities, masha is used for smaller measurements.
               </p>
-
-              <h3 className="text-2xl font-bold text-primary-400">
-                What is Masha?
-              </h3>
-              <p className="leading-relaxed">
-                Masha is a smaller traditional unit of weight, primarily used in jewelry and precious metals. One tola is equal to 12 masha. Masha is particularly useful for measuring small quantities or for detailed jewelry specifications.
+              <p>
+                <span className="text-amber-400 font-semibold">1 Tola = 12 Masha</span>
               </p>
-
-              <div className="bg-dark-700 p-4 rounded-lg border-2 border-primary-600">
-                <p className="font-bold text-primary-300">1 Tola = 12 Masha</p>
-              </div>
+              <p>
+                Masha is particularly useful for measuring small quantities or for detailed jewelry specifications. Understanding the relationship between these units is important for jewelry and precious metals work.
+              </p>
             </div>
           </div>
         </div>
