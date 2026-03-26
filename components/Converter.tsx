@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { tolaToGrams, gramsToTola, formatNumber, parseInput } from '@/lib/conversions';
 
 interface ConverterProps {
@@ -9,8 +9,27 @@ interface ConverterProps {
 }
 
 export default function Converter({ type = 'tola-to-grams', title }: ConverterProps) {
+  const [mounted, setMounted] = useState(false);
   const [input, setInput] = useState('');
   const [result, setResult] = useState<string | null>(null);
+
+  useEffect(() => { setMounted(true); }, []);
+
+  if (!mounted) {
+    return (
+      <div className="w-full max-w-2xl mx-auto">
+        <div className="bg-dark-800 rounded-2xl shadow-lg-custom overflow-hidden border border-primary-900">
+          {title && <div className="gradient-primary p-8"><div className="h-8 bg-white/10 rounded animate-pulse" /></div>}
+          <div className="p-8 md:p-12 space-y-8">
+            <div className="h-14 bg-dark-700 rounded-lg animate-pulse" />
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+              {[1,2,3,4,5].map(i => <div key={i} className="h-11 bg-dark-700 rounded-lg animate-pulse" />)}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

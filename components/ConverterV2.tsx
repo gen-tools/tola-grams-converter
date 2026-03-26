@@ -16,15 +16,43 @@ export default function ConverterV2({
   subtitle,
   regions
 }: ConverterV2Props) {
+  const [mounted, setMounted] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [decimals, setDecimals] = useState(4);
   const lastEdited = useRef<1 | 2>(1);
 
+  useEffect(() => { setMounted(true); }, []);
+
   const isTolaToGrams = type === 'tola-to-grams';
   const label1 = isTolaToGrams ? 'Tola' : 'Grams';
   const label2 = isTolaToGrams ? 'Grams' : 'Tola';
   const CONVERSION_CONSTANT = 11.6638038;
+
+  if (!mounted) {
+    return (
+      <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
+            <div className="h-8 w-52 bg-slate-800 rounded animate-pulse mb-2" />
+            <div className="h-4 w-36 bg-slate-800 rounded animate-pulse mb-10" />
+            <div className="h-12 w-40 bg-slate-800 rounded animate-pulse mb-8" />
+            <div className="grid gap-6 md:grid-cols-2 mb-8">
+              <div className="h-16 bg-slate-800 rounded-xl animate-pulse" />
+              <div className="h-16 bg-slate-800 rounded-xl animate-pulse" />
+            </div>
+            <div className="flex gap-2">
+              {[1,2,3,4].map(i => <div key={i} className="h-9 w-12 bg-slate-800 rounded-full animate-pulse" />)}
+            </div>
+          </div>
+          <div className="lg:col-span-1 space-y-6">
+            <div className="glass-card p-6 rounded-2xl border border-amber-500/20 h-36 animate-pulse" />
+            {regions && <div className="glass-card p-6 rounded-2xl h-32 animate-pulse" />}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const doConvert = (val: string, fromTola: boolean, dp: number): string => {
     const num = parseFloat(val);
