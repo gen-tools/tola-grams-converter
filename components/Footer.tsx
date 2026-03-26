@@ -66,6 +66,16 @@ export default function Footer() {
                   <span className="text-amber-300 opacity-50">&rsaquo;</span> UAE
                 </Link>
               </li>
+              <li>
+                <Link href="/dubai" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
+                  <span className="text-amber-300 opacity-50">&rsaquo;</span> Dubai
+                </Link>
+              </li>
+              <li>
+                <Link href="/uk" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
+                  <span className="text-amber-300 opacity-50">&rsaquo;</span> UK
+                </Link>
+              </li>
             </ul>
           </div>
 
