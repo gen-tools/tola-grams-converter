@@ -65,7 +65,8 @@ export default function ConverterV2({
           <div className="flex gap-3 items-center mb-8 bg-slate-800/30 rounded-lg p-4 w-fit">
             <button
               onClick={() => setDecimals(Math.max(0, decimals - 1))}
-              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400"
+              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+              type="button"
             >
               −
             </button>
@@ -74,7 +75,8 @@ export default function ConverterV2({
             </div>
             <button
               onClick={() => setDecimals(Math.min(10, decimals + 1))}
-              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400"
+              className="pill-btn px-3 py-1.5 rounded-lg text-lg hover:text-amber-400 font-semibold cursor-pointer active:scale-95"
+              type="button"
             >
               +
             </button>
@@ -119,7 +121,8 @@ export default function ConverterV2({
               <button
                 key={val}
                 onClick={() => handleQuickPick(val)}
-                className="px-4 pill-btn py-2 rounded-full hover:text-amber-400"
+                className="px-4 pill-btn py-2 rounded-full hover:text-amber-400 font-medium cursor-pointer active:scale-95 transition-all"
+                type="button"
               >
                 {val}
               </button>

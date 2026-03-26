@@ -22,11 +22,11 @@ export default function Header() {
               Home
             </Link>
 
-            <div className="relative group">
+            <div className="relative group z-50">
               <button className="text-sm text-slate-300 hover:text-amber-400 transition-colors">
                 Tools
               </button>
-              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="space-y-1">
                   <Link href="/grams-to-tola" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                     Grams to Tola
@@ -41,11 +41,11 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group z-50">
               <button className="text-sm text-slate-300 hover:text-amber-400 transition-colors">
                 Learn
               </button>
-              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="space-y-1">
                   <Link href="/what-is-tola" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                     What is Tola?
@@ -57,11 +57,11 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group z-50">
               <button className="text-sm text-slate-300 hover:text-amber-400 transition-colors">
                 Regions
               </button>
-              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 top-full mt-3 w-64 glass-card bg-slate-800/90 border border-white/10 rounded-xl p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="space-y-1">
                   <Link href="/pakistan" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                     Pakistan
