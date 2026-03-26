@@ -21,6 +21,9 @@ export default function Home() {
               { name: 'Pakistan', link: '/pakistan' },
               { name: 'India', link: '/india' },
               { name: 'Nepal', link: '/nepal' },
+              { name: 'Dubai', link: '/dubai' },
+              { name: 'UAE', link: '/uae' },
+              { name: 'UK', link: '/uk' },
             ]}
           />
         </div>
