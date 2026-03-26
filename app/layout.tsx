@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -73,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-slate-900 text-gray-200">
+      <body className="bg-slate-900 text-gray-200" suppressHydrationWarning>
         <Header />
         <main className="w-full">
           {children}
