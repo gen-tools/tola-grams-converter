@@ -128,23 +128,37 @@ export default function ConverterV2({
 
           {/* Output Tiles */}
           {input1 && (
-            <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-3">
-              <div className="glass-card-light p-5 rounded-xl text-center">
-                <p className="text-slate-400 text-sm mb-1">{label1}</p>
-                <p className="text-white font-bold md:text-3xl text-2xl">{input1}</p>
+            <div className="mt-8 space-y-4">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-3">
+                <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                  <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">{label1}</p>
+                  <p className="text-white font-bold text-3xl md:text-4xl">{input1}</p>
+                  <p className="text-slate-500 text-xs mt-2">{input1} {label1}</p>
+                </div>
+                <div className="glass-card-light p-6 rounded-xl text-center flex items-center justify-center border border-white/5">
+                  <p className="text-slate-400 text-xl">↔</p>
+                </div>
+                <div className="glass-card-light p-6 rounded-xl text-center border border-white/5">
+                  <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">{label2}</p>
+                  <p className="text-white font-bold text-3xl md:text-4xl">{input2}</p>
+                  <p className="text-slate-500 text-xs mt-2">{input2} {label2}</p>
+                </div>
               </div>
-              <div className="glass-card-light p-5 rounded-xl text-center flex items-center justify-center">
-                <p className="text-slate-400">↔</p>
-              </div>
-              <div className="glass-card-light p-5 rounded-xl text-center">
-                <p className="text-slate-400 text-sm mb-1">{label2}</p>
-                <p className="text-white font-bold md:text-3xl text-2xl">{input2}</p>
-              </div>
-              <div className="col-span-1 sm:col-span-3 glass-card-light p-5 rounded-xl">
-                <p className="text-slate-400 text-sm mb-2">Formula</p>
-                <p className="text-white font-mono text-center">
-                  {label1} × <span className="text-cyan-400 font-semibold">{CONVERSION_CONSTANT}</span> = {label2}
-                </p>
+
+              <div className="glass-card-light p-6 rounded-xl border border-white/5">
+                <p className="text-slate-400 text-xs uppercase tracking-wide mb-3">Formula</p>
+                <div className="space-y-2 text-center">
+                  <p className="text-slate-300 text-sm">
+                    {isTolaToGrams ? (
+                      <>Tola ÷ <span className="text-cyan-400 font-semibold">11.6638038</span> = Grams</>
+                    ) : (
+                      <>Grams × <span className="text-cyan-400 font-semibold">11.6638038</span> = Tola</>
+                    )}
+                  </p>
+                  <p className="text-white font-mono text-sm font-semibold">
+                    {input1} × {CONVERSION_CONSTANT} = {input2}
+                  </p>
+                </div>
               </div>
             </div>
           )}
@@ -152,27 +166,35 @@ export default function ConverterV2({
 
         {/* Sidebar */}
         <div className="lg:col-span-1 space-y-6">
-          {/* Result Card */}
-          {input1 && (
-            <div className="glass-card p-6 rounded-2xl glow-gold">
-              <h3 className="text-amber-400 font-semibold mb-3">Result</h3>
-              <p className="text-white font-bold md:text-5xl mt-3 text-4xl">{input2}</p>
-              <p className="text-slate-400 text-sm mt-1">{input1} {label1} = {input2} {label2}</p>
-            </div>
-          )}
+          {/* Result Card - Always Visible */}
+          <div className="glass-card p-6 rounded-2xl glow-gold border border-amber-500/20">
+            <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">Result</h3>
+            {input1 ? (
+              <>
+                <p className="text-white font-bold md:text-5xl text-4xl leading-tight">{input2}</p>
+                <p className="text-slate-300 text-sm mt-3 font-medium">{input1} {label1} = {input2} {label2}</p>
+              </>
+            ) : (
+              <div className="flex items-center justify-center py-8">
+                <p className="text-slate-500 text-sm">Enter an amount to see result</p>
+              </div>
+            )}
+          </div>
 
           {/* Other Regions Card */}
           {regions && (
             <div className="glass-card p-6 rounded-2xl text-sm">
-              <h3 className="text-amber-400 font-semibold mb-3">Regions</h3>
+              <h3 className="text-amber-400 font-semibold mb-3 text-sm uppercase tracking-wide">
+                {isTolaToGrams ? 'Regional Rates' : 'Other Regions'}
+              </h3>
               <div className="space-y-2 text-slate-300">
                 {regions.map((r, i) => (
                   <a
                     key={i}
                     href={r.link}
-                    className="block transition-colors hover:text-amber-400"
+                    className="block transition-colors hover:text-amber-400 flex items-center gap-2"
                   >
-                    ↗ {r.name}
+                    <span className="text-amber-300 opacity-60">✦</span> {r.name}
                   </a>
                 ))}
               </div>
