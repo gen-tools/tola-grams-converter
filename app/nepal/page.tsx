@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import ConverterV2 from '@/components/ConverterV2Dynamic';
+import RegionalConverter from '@/components/RegionalConverterDynamic';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Tola to Grams Converter Nepal | Gold Weight Converter',
-  description: 'Convert tola to grams in Nepal. Learn about tola usage in Nepali gold markets and jewelry trading.',
-  keywords: 'tola to grams nepal, gold weight converter, nepali gold market',
+  title: 'Tola to Grams Converter Nepal | Gold Rate in NPR',
+  description: 'Convert tola to grams in Nepal and calculate gold value in NPR. Instant tola weight conversion and gold price calculator for Nepali gold market.',
+  keywords: 'tola to grams nepal, gold tola nepal, gold rate nepal npr, tola converter',
   alternates: {
     canonical: 'https://tola-to-grams.com/nepal',
   },
@@ -16,10 +16,13 @@ export default function NepalPage() {
     <div className="w-full bg-slate-900">
       <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <ConverterV2
-            type="tola-to-grams"
-            title="Tola to Grams Nepal"
-            subtitle="Accurate conversion for Nepali gold market"
+          <RegionalConverter
+            title="Tola to Grams — Nepal"
+            subtitle="Accurate conversion and gold value calculator for Nepali gold market"
+            regionName="Nepal"
+            currency="NPR"
+            currencySymbol="रू"
+            approxRatePerTola={149000}
             regions={[
               { name: 'Pakistan', link: '/pakistan' },
               { name: 'India', link: '/india' },
@@ -53,23 +56,23 @@ export default function NepalPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Link href="/pakistan" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
               <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">Pakistan</h3>
-              <p className="text-slate-400 text-sm">Tola converter for Pakistani gold market</p>
+              <p className="text-slate-400 text-sm">Gold rate in PKR · Tola converter</p>
             </Link>
             <Link href="/india" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
               <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">India</h3>
-              <p className="text-slate-400 text-sm">Tola converter for Indian gold market</p>
+              <p className="text-slate-400 text-sm">Gold rate in INR · Tola converter</p>
             </Link>
             <Link href="/dubai" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
               <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">Dubai</h3>
-              <p className="text-slate-400 text-sm">Tola converter for Dubai gold trading</p>
+              <p className="text-slate-400 text-sm">Gold rate in AED · Tola converter</p>
             </Link>
             <Link href="/uae" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
               <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">UAE</h3>
-              <p className="text-slate-400 text-sm">Tola converter for UAE markets</p>
+              <p className="text-slate-400 text-sm">Gold rate in AED · Tola converter</p>
             </Link>
             <Link href="/uk" className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group">
               <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">UK</h3>
-              <p className="text-slate-400 text-sm">Tola converter for UK gold trading</p>
+              <p className="text-slate-400 text-sm">Gold rate in GBP · Tola converter</p>
             </Link>
           </div>
         </div>
