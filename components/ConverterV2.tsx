@@ -150,13 +150,13 @@ export default function ConverterV2({
                 <div className="space-y-2 text-center">
                   <p className="text-slate-300 text-sm">
                     {isTolaToGrams ? (
-                      <>Tola ÷ <span className="text-cyan-400 font-semibold">11.6638038</span> = Grams</>
+                      <>{label1} × <span className="text-cyan-400 font-semibold">{CONVERSION_CONSTANT}</span> = {label2}</>
                     ) : (
-                      <>Grams × <span className="text-cyan-400 font-semibold">11.6638038</span> = Tola</>
+                      <>{label1} ÷ <span className="text-cyan-400 font-semibold">{CONVERSION_CONSTANT}</span> = {label2}</>
                     )}
                   </p>
                   <p className="text-white font-mono text-sm font-semibold">
-                    {input1} × {CONVERSION_CONSTANT} = {input2}
+                    {input1} {isTolaToGrams ? '×' : '÷'} {CONVERSION_CONSTANT} = {input2}
                   </p>
                 </div>
               </div>
