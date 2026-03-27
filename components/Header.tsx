@@ -56,7 +56,7 @@ export default function Header() {
               <circle cx="31" cy="12" r="3" fill="#D97706"/>
               <rect x="11" y="27" width="14" height="3.5" rx="1.75" fill="#D97706"/>
             </svg>
-            <span className="text-xl md:text-2xl font-semibold gradient-text">Tola</span>
+            <span className="text-base md:text-lg font-semibold gradient-text leading-tight">Tola to Grams Converter</span>
           </Link>
 
           {/* Desktop nav */}
