@@ -64,9 +64,6 @@ export default function Header() {
               <Link href="/tola-to-masha" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                 Tola to Masha
               </Link>
-              <Link href="/tola-vs-grams" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
-                Tola vs Grams
-              </Link>
             </NavDropdown>
 
             <NavDropdown label="Blogs">
@@ -75,6 +72,9 @@ export default function Header() {
               </Link>
               <Link href="/gold-weight-guide" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                 Gold Weight Guide
+              </Link>
+              <Link href="/tola-vs-grams" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
+                Tola vs Grams
               </Link>
             </NavDropdown>
 
@@ -134,9 +134,6 @@ export default function Header() {
                   <Link href="/tola-to-masha" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
                     Tola to Masha
                   </Link>
-                  <Link href="/tola-vs-grams" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
-                    Tola vs Grams
-                  </Link>
                 </div>
               </div>
 
@@ -148,6 +145,9 @@ export default function Header() {
                   </Link>
                   <Link href="/gold-weight-guide" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
                     Gold Weight Guide
+                  </Link>
+                  <Link href="/tola-vs-grams" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
+                    Tola vs Grams
                   </Link>
                 </div>
               </div>
