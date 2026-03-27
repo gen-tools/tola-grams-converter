@@ -47,8 +47,16 @@ export default function Header() {
     <header className="sticky top-0 z-40 glass-card border-b border-white/10" role="banner">
       <div className="container-max">
         <nav className="flex items-center justify-between h-14 md:h-16" role="navigation" aria-label="Main navigation">
-          <Link href="/" className="flex-shrink-0" aria-label="Tola to Grams Converter">
-            <img src="/logo.png" alt="Tola to Grams Converter" className="h-9 md:h-11 w-auto object-contain" />
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0" aria-label="Tola to Grams Converter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="h-8 w-8 md:h-9 md:w-9 flex-shrink-0">
+              <rect width="36" height="36" rx="8" fill="#0F172A"/>
+              <rect x="5" y="10" width="26" height="4" rx="2" fill="#F59E0B"/>
+              <rect x="15" y="14" width="6" height="13" rx="2" fill="#F59E0B"/>
+              <circle cx="5" cy="12" r="3" fill="#D97706"/>
+              <circle cx="31" cy="12" r="3" fill="#D97706"/>
+              <rect x="11" y="27" width="14" height="3.5" rx="1.75" fill="#D97706"/>
+            </svg>
+            <span className="text-xl md:text-2xl font-semibold gradient-text">Tola</span>
           </Link>
 
           {/* Desktop nav */}
