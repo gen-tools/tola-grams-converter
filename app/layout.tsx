@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   creator: "Tola Converter",
   publisher: "Tola Converter",
   robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
   },
   openGraph: {
     type: 'website',
