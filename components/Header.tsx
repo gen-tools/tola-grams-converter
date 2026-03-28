@@ -86,6 +86,10 @@ export default function Header() {
               </Link>
             </NavDropdown>
 
+            <Link href="/contact" className="text-sm text-slate-300 hover:text-amber-400 transition-colors">
+              Contact Us
+            </Link>
+
             <NavDropdown label="Regions">
               <Link href="/pakistan" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                 Pakistan
@@ -159,6 +163,10 @@ export default function Header() {
                   </Link>
                 </div>
               </div>
+
+              <Link href="/contact" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+                Contact Us
+              </Link>
 
               <div className="px-3 pt-2 pb-1">
                 <p className="text-xs uppercase tracking-wider text-slate-500 font-medium mb-2">Regions</p>

@@ -1,15 +1,19 @@
 'use client';
 
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
+import { LANGUAGES } from "@/lib/translations";
 
 export default function Footer() {
+  const { lang, setLang, t } = useLanguage();
+
   return (
     <footer className="bg-gray-900 border-t-2 border-gray-800 mt-20 pt-16 pb-8 text-sm">
       <div className="container-max">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div>
-            <h3 className="font-semibold text-xl gradient-text mb-3">Tola</h3>
+            <h3 className="font-semibold text-xl gradient-text mb-3">Tola to Grams Converter</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Free, accurate weight converter for gold, jewelry, and precious metals. Serving traders, jewelers, and collectors worldwide.
             </p>
@@ -37,6 +41,11 @@ export default function Footer() {
               <li>
                 <Link href="/tola-to-masha" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
                   <span className="text-amber-300 opacity-50">&rsaquo;</span> Tola to Masha
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
+                  <span className="text-amber-300 opacity-50">&rsaquo;</span> Contact Us
                 </Link>
               </li>
             </ul>
@@ -97,19 +106,43 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div className="bg-gray-800 border border-gray-700 p-3 rounded-lg text-gray-400 mb-6">
-          <p className="font-bold uppercase text-[10px] tracking-wider text-amber-300 mb-2">Disclaimer</p>
-          <p className="text-xs">
-            This converter provides approximate conversions for informational purposes. For precise measurements in gold trading and jewelry making, always verify with official standards in your region.
-          </p>
-        </div>
+        {/* Bottom bar: Disclaimer + Language selector */}
+        <div className="border-t border-gray-800 pt-6">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+            {/* Left: copyright + disclaimer */}
+            <div className="lg:w-1/2 space-y-3">
+              <p className="text-gray-500 text-xs" suppressHydrationWarning>
+                © {new Date().getFullYear()} Tola to Grams Converter. All rights reserved.
+              </p>
+              <div className="bg-gray-800 border border-gray-700 p-3 rounded-lg text-gray-400">
+                <p className="font-bold uppercase text-[10px] tracking-wider text-amber-300 mb-1">{t.independentResource}</p>
+                <p className="text-xs leading-relaxed">
+                  <span className="font-semibold text-gray-300">Disclaimer: </span>
+                  {t.disclaimer}
+                </p>
+              </div>
+            </div>
 
-        {/* Bottom */}
-        <div className="text-center border-t border-gray-800 pt-6">
-          <p className="text-gray-400 text-xs" suppressHydrationWarning>
-            © {new Date().getFullYear()} Tola Converter. 1 Tola = 11.6638 Grams. All rights reserved.
-          </p>
+            {/* Right: Language selector */}
+            <div className="lg:w-1/2">
+              <p className="text-amber-400 font-semibold text-xs uppercase tracking-wider mb-3">{t.languages}</p>
+              <div className="flex flex-wrap gap-2">
+                {LANGUAGES.map(({ code, label }) => (
+                  <button
+                    key={code}
+                    onClick={() => setLang(code)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                      lang === code
+                        ? 'bg-amber-400 text-gray-900 border-amber-400'
+                        : 'bg-transparent text-gray-400 border-gray-600 hover:border-amber-400 hover:text-amber-300'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

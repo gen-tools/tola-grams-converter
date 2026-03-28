@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -75,11 +76,13 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-slate-900 text-gray-200" suppressHydrationWarning>
-        <Header />
-        <main className="w-full">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main className="w-full">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
