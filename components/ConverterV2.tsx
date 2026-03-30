@@ -8,13 +8,15 @@ interface ConverterV2Props {
   title: string;
   subtitle?: string;
   regions?: Array<{ name: string; link: string }>;
+  asH1?: boolean;
 }
 
 export default function ConverterV2({
   type = 'tola-to-grams',
   title,
   subtitle,
-  regions
+  regions,
+  asH1 = false
 }: ConverterV2Props) {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
@@ -70,9 +72,11 @@ export default function ConverterV2({
         {/* Main Calculator */}
         <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">
-              {title}
-            </h2>
+            {asH1 ? (
+              <h1 className="text-2xl md:text-3xl font-bold gradient-text mb-1">{title}</h1>
+            ) : (
+              <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">{title}</h2>
+            )}
             {subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}
           </div>
 

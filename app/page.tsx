@@ -19,6 +19,7 @@ export default function Home() {
             type="tola-to-grams"
             title="Tola to Grams"
             subtitle="Convert instantly"
+            asH1={true}
             regions={[
               { name: 'Pakistan', link: '/pakistan' },
               { name: 'India', link: '/india' },
@@ -45,9 +46,9 @@ export default function Home() {
       <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
           <div className="glass-card p-6 md:p-10 rounded-2xl">
-            <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
               Tola to Grams Converter – Accurate, Instant, and Practical
-            </h1>
+            </h2>
             <p className="text-slate-300 leading-relaxed text-base md:text-lg">
               If you've ever bought or sold gold, jewellery or precious metals in South Asia, chances are you've come across the term "tola". While grams have become the modern standard for measuring weight all over the world, tola is still widely used in countries such as{' '}
               <Link href="/india" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">India</Link>,{' '}

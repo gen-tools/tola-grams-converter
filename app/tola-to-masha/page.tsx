@@ -50,9 +50,9 @@ export default function TolaToMashaPage() {
               {/* Main Calculator */}
               <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
                 <div className="mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">
+                  <h1 className="text-2xl md:text-3xl font-bold gradient-text mb-1">
                     Tola to Masha
-                  </h2>
+                  </h1>
                   <p className="text-sm text-slate-400">Convert tola to masha and vice versa</p>
                 </div>
 
@@ -199,9 +199,9 @@ export default function TolaToMashaPage() {
       <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
           <div className="glass-card p-6 md:p-10 rounded-2xl">
-            <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
               Tola to Masha Converter – Clear, Accurate, and Easy to Use
-            </h1>
+            </h2>
             <h2 className="text-xl md:text-2xl font-bold text-amber-400 mb-4">
               The Real Problem People Face
             </h2>

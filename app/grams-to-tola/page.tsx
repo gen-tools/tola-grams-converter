@@ -16,6 +16,7 @@ export default function GramsToTolaPage() {
             type="grams-to-tola"
             title="Grams to Tola"
             subtitle="Reverse conversion"
+            asH1={true}
             regions={[
               { name: 'Pakistan', link: '/pakistan' },
               { name: 'India', link: '/india' },
@@ -32,9 +33,9 @@ export default function GramsToTolaPage() {
       <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
           <div className="glass-card p-6 md:p-10 rounded-2xl">
-            <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-6 leading-tight">
               Gram to Tola Converter – Fast, Accurate, and Easy to Use
-            </h1>
+            </h2>
             <p className="text-slate-300 leading-relaxed text-base md:text-lg">
               If you deal with gold in any way, you already know one thing: weight matters a lot. Even a small difference can change the total price. That's why converting between grams and tola correctly is so important.
             </p>
