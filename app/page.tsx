@@ -213,7 +213,7 @@ export default function Home() {
                   <p>23.3276 × 6000 = ₹139,965.6</p>
                 </div>
                 <p className="text-slate-400 text-sm mt-3">
-                  This calculation shows how precise <Link href="/tola-vs-grams" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">tola into gram gold conversions</Link> can directly affect investment decisions.
+                  This calculation shows how precise tola into gram gold conversions can directly affect investment decisions.
                 </p>
               </div>
 
