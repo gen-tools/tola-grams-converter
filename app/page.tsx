@@ -98,7 +98,7 @@ export default function Home() {
               </p>
               <p>
                 For gold traders, jewellers and investors this was a recipe for disaster - all those repeated mistakes eventually added up. Even students trying to wrap their heads around traditional weights or metalworking had to deal with "1 tola is how many grams?" style questions, and it only got worse when you tried to make comparisons between{' '}
-                <Link href="/tola-vs-grams" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">tola and gram</Link>.
+                tola and gram.
               </p>
               <p>
                 Suppose you've got a gold chain measured in tola, but the market price is posted per gram - without a decent conversion to be sure, working out the value is a recipe for disaster. Over time, this led to a general lack of confidence in calculations - and even financial problems for small businesses.
