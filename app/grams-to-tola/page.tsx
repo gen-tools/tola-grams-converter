@@ -386,6 +386,66 @@ export default function GramsToTolaPage() {
         </div>
       </section>
 
+      {/* FAQs */}
+      <section className="py-8 md:py-12 bg-slate-900">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto space-y-5">
+            <h2 className="text-2xl md:text-3xl font-bold gradient-text">
+              Frequently Asked Questions (FAQs)
+            </h2>
+            <div className="space-y-3">
+              {[
+                {
+                  q: 'What is 1 gram in tola?',
+                  a: '1 gram is equal to 0.0857 tola based on the standard conversion.',
+                },
+                {
+                  q: 'How many grams are in 1 tola?',
+                  a: '1 tola is equal to 11.66 grams. This is the official value used in gold markets.',
+                },
+                {
+                  q: 'How to convert gram to tola easily?',
+                  a: 'The easiest way is to use a gram to tola converter online. You just enter the value and get the result instantly without calculation.',
+                },
+                {
+                  q: 'What is 10 gram tola?',
+                  a: '10 grams is equal to 0.857 tola.',
+                },
+                {
+                  q: 'What is 100 gram to tola?',
+                  a: '100 grams is equal to 8.57 tola.',
+                },
+                {
+                  q: 'How much is 10 tola in grams?',
+                  a: '10 tola is equal to 116.6 grams.',
+                },
+                {
+                  q: 'Why is tola still used in Pakistan?',
+                  a: 'Tola is a traditional unit that has been used for many years in gold markets. Even today, gold prices are often announced per tola.',
+                },
+                {
+                  q: 'Is gram or tola more accurate?',
+                  a: 'Both are accurate units, but grams are used globally. Tola is mainly used in local markets. The important thing is to convert correctly between them.',
+                },
+                {
+                  q: 'Can I use this converter for gold and silver?',
+                  a: 'Yes, this converter works for any material measured in grams and tola, including gold and silver.',
+                },
+              ].map((faq, i) => (
+                <div key={i} className="glass-card p-5 rounded-2xl">
+                  <h3 className="font-bold text-white mb-2 text-sm md:text-base">
+                    Q{i + 1}: {faq.q}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    <span className="text-amber-400 font-semibold">A{i + 1}:</span> {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final Words */}
       <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
