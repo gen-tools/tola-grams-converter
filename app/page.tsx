@@ -68,8 +68,8 @@ export default function Home() {
             </h2>
             <div className="text-slate-300 leading-relaxed space-y-4 text-sm md:text-base">
               <p>
-                For many people, the trouble isn't just coming up with a way to{' '}
-                <Link href="/grams-to-tola" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">convert tola to grams</Link>{' '}
+                For many people, the trouble isn't just coming up with a way to
+                convert tola to grams
                 but also making sure you get the accuracy right in deals where even a tiny mistake can cost you hundreds or thousands of rupees.
               </p>
               <p>
