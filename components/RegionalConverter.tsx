@@ -87,7 +87,7 @@ export default function RegionalConverter({
         {/* Main */}
         <div className="lg:col-span-2 glass-card p-6 rounded-2xl md:p-8">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-1">{title}</h2>
+            <h1 className="text-2xl md:text-3xl font-bold gradient-text mb-1">{title}</h1>
             {subtitle && <p className="text-sm text-slate-400">{subtitle}</p>}
           </div>
 
