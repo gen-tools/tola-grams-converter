@@ -44,6 +44,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/gold-weight-converter" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
+                  <span className="text-amber-300 opacity-50">&rsaquo;</span> Gold Weight Converter
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-gray-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-2">
                   <span className="text-amber-300 opacity-50">&rsaquo;</span> Contact Us
                 </Link>

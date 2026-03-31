@@ -72,6 +72,9 @@ export default function Header() {
               <Link href="/tola-to-masha" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
                 Tola to Masha
               </Link>
+              <Link href="/gold-weight-converter" className="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-colors">
+                Gold Weight Converter
+              </Link>
             </NavDropdown>
 
             <NavDropdown label="Blogs">
@@ -145,6 +148,9 @@ export default function Header() {
                   </Link>
                   <Link href="/tola-to-masha" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
                     Tola to Masha
+                  </Link>
+                  <Link href="/gold-weight-converter" className="block px-3 py-3 text-sm text-slate-300 hover:text-amber-400 hover:bg-white/5 rounded-lg transition-colors" onClick={() => setMenuOpen(false)}>
+                    Gold Weight Converter
                   </Link>
                 </div>
               </div>
