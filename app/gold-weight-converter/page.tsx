@@ -20,9 +20,9 @@ export default function GoldWeightConverter() {
   ];
 
   return (
-    <div className="w-full bg-dark-900">
+    <div className="w-full bg-slate-900">
       {/* Converter Section */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
           <ConverterV2
             type="tola-to-grams"
@@ -34,16 +34,16 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Introduction */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-500 mb-6">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h1 className="text-2xl md:text-3xl font-bold gradient-text mb-4">
               Gold Weight Converter – Simple and Accurate Tool for Daily Gold Calculations
             </h1>
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+            <h2 className="text-xl font-semibold text-amber-400 mb-4">
               Introduction: Understand Gold Weight Without Confusion
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 Gold isn't just any metal. For most of us, it's our savings, a bit of security, and a big part of happy moments like weddings. But when it comes to checking the weight of gold, things can get really confusing.
               </p>
@@ -62,20 +62,20 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* The Problem */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               The Problem: Different Units Create Confusion
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 When you walk into a jewelry shop, the seller might quote the price in tola. But when you check the gold rate on your phone, it's shown in grams. Suddenly you're stuck with two different numbers and you have to make them match.
               </p>
               <p>This is where most of us get stuck.</p>
               <p>
                 A common slip-up is thinking 1 tola is exactly 10 grams. Actually,{" "}
-                <span className="text-primary-400 font-semibold">1 tola equals 11.66 grams</span>. That tiny difference can change the whole price, especially when gold is so costly.
+                <span className="text-amber-400 font-semibold">1 tola equals 11.66 grams</span>. That tiny difference can change the whole price, especially when gold is so costly.
               </p>
               <p>Because of this mix-up, people often:</p>
               <ul className="space-y-2 pl-2">
@@ -85,7 +85,7 @@ export default function GoldWeightConverter() {
                   "Feel unsure the whole time they're buying or selling",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="text-primary-400 font-bold flex-shrink-0">•</span>
+                    <span className="text-amber-400 font-bold flex-shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -99,13 +99,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Agitation */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Agitation: How Small Errors Lead to Financial Loss
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>Let me paint a quick picture with a real-life example.</p>
               <p>
                 Someone goes to buy gold for a family wedding. The shopkeeper gives the price in tola. The buyer looks up the rate online in grams and tries to convert it fast in his head. He makes a small error. Suddenly the total bill looks higher than it should. He ends up paying extra without even noticing.
@@ -122,13 +122,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* The Solution */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               The Solution: Gold Weight Converter
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 A Gold Weight Converter fixes this whole headache in the easiest way possible.
               </p>
@@ -143,7 +143,7 @@ export default function GoldWeightConverter() {
                   "Comparing local rates with international ones",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="text-primary-400 font-bold flex-shrink-0">•</span>
+                    <span className="text-amber-400 font-bold flex-shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -157,20 +157,20 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* How the Calculator Works */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               How the Gold Weight Calculator Works
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 The gold weight calculator online uses the same standard numbers that gold markets everywhere accept.
               </p>
               <p>For example:</p>
-              <div className="bg-dark-700 rounded-xl p-4 border border-primary-800 space-y-2">
-                <p><span className="text-primary-400 font-semibold">1 tola</span> = 11.66 grams</p>
-                <p><span className="text-primary-400 font-semibold">1 ounce</span> = 31.1035 grams</p>
+              <div className="bg-slate-800/60 rounded-xl p-4 border border-slate-700/40 space-y-2">
+                <p><span className="text-amber-400 font-semibold">1 tola</span> = 11.66 grams</p>
+                <p><span className="text-amber-400 font-semibold">1 ounce</span> = 31.1035 grams</p>
               </div>
               <p>
                 These numbers never change. When you put in any amount, the tool uses these exact values and gives you the result right away.
@@ -184,24 +184,24 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Example */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Example: Calculate Gold Value Easily
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>Here's a simple real example.</p>
               <p>Suppose you have 3 tola of gold. First, convert it to grams:</p>
-              <div className="bg-dark-700 rounded-xl p-4 md:p-6 border border-primary-800 space-y-3">
+              <div className="bg-slate-800/60 rounded-xl p-4 md:p-6 border border-slate-700/40 space-y-3">
                 <div>
-                  <p className="text-primary-400 font-semibold text-xs uppercase tracking-wide mb-1">Step 1 – Convert</p>
+                  <p className="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-1">Step 1 – Convert</p>
                   <p>3 tola = 34.98 grams</p>
                 </div>
                 <div>
-                  <p className="text-primary-400 font-semibold text-xs uppercase tracking-wide mb-1">Step 2 – Calculate value</p>
+                  <p className="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-1">Step 2 – Calculate value</p>
                   <p>Now, if today's gold price is 12,000 PKR per gram, just multiply:</p>
-                  <p className="text-primary-300 font-bold mt-1">34.98 × 12,000 = 419,760 PKR</p>
+                  <p className="text-amber-300 font-bold mt-1">34.98 × 12,000 = 419,760 PKR</p>
                 </div>
               </div>
               <p>That's the real value of your gold.</p>
@@ -209,10 +209,10 @@ export default function GoldWeightConverter() {
                 Without a Gold Weight Converter, you'd spend time doing the math and might still make a mistake. With the tool, it's quick, easy, and spot on.
               </p>
               <p>
-                You can also check gold rates by region — for example,{" "}
-                <Link href="/pakistan" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">Pakistan gold rate</Link>,{" "}
-                <Link href="/india" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">India gold rate</Link>, or{" "}
-                <Link href="/nepal" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">Nepal gold rate</Link>.
+                You can also check gold rates by region —{" "}
+                <Link href="/pakistan" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">Pakistan gold rate</Link>,{" "}
+                <Link href="/india" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">India gold rate</Link>, or{" "}
+                <Link href="/nepal" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">Nepal gold rate</Link>.
               </p>
             </div>
           </div>
@@ -220,13 +220,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Why Use Online */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Why You Should Use a Gold Weight Calculator Online
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 Using a gold weight calculator isn't just about making things convenient. It actually helps you make smarter decisions with your money.
               </p>
@@ -245,13 +245,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Why Manual Is Not Reliable */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Why Manual Conversion Is Not Reliable
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 Plenty of people still try to do the conversion in their head or on paper. It usually leads to slip-ups.
               </p>
@@ -263,7 +263,7 @@ export default function GoldWeightConverter() {
               </p>
               <p>
                 For a deeper look at how the two units compare, see our{" "}
-                <Link href="/tola-vs-grams" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">
+                <Link href="/tola-vs-grams" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
                   tola vs grams
                 </Link>{" "}
                 guide.
@@ -274,13 +274,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* How This Tool Helps in Real Life */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               How This Tool Helps in Real Life
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>The Gold Weight Converter fits right into everyday situations.</p>
               <p>
                 When you're buying gold, it helps you double-check the weight and price on the spot. When you're selling, it makes sure you're not getting short-changed.
@@ -297,13 +297,13 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Tips */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Tips for Using the Tool Effectively
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 To get the best results, always pick the right unit before you convert. Type the number carefully and glance at the answer once more.
               </p>
@@ -319,70 +319,79 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Complete Gold Weight Reference */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-500 mb-8">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-6">
               Complete Gold Weight Reference
             </h2>
-
-            <div className="space-y-6 text-gray-300 text-sm">
-              <p className="leading-relaxed">
+            <div className="space-y-6 text-slate-300 leading-relaxed">
+              <p>
                 When working with gold, you may encounter various measurement units depending on your location and market. This comprehensive tool covers the main units used in gold trading and jewelry.
               </p>
-
-              <h3 className="text-2xl font-bold text-primary-400">
+              <h3 className="text-lg font-bold text-amber-400">
                 Primary Gold Weight Units
               </h3>
-
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse text-xs">
+                <table className="w-full text-sm border-collapse">
                   <thead>
-                    <tr className="bg-dark-700 border-b-2 border-primary-600">
-                      <th className="px-3 py-2 text-primary-400 font-bold">Unit</th>
-                      <th className="px-3 py-2 text-primary-400 font-bold">Grams</th>
-                      <th className="px-3 py-2 text-primary-400 font-bold">Usage</th>
+                    <tr className="bg-slate-700/50">
+                      <th className="text-left p-3 text-amber-400 font-semibold rounded-tl-lg">Unit</th>
+                      <th className="text-left p-3 text-amber-400 font-semibold">Grams</th>
+                      <th className="text-left p-3 text-amber-400 font-semibold rounded-tr-lg">Usage</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="border-b border-primary-800 hover:bg-dark-700">
-                      <td className="px-3 py-2 font-semibold text-gray-300">Gram</td>
-                      <td className="px-3 py-2 text-gray-300">1</td>
-                      <td className="px-3 py-2 text-gray-300">International</td>
+                  <tbody className="divide-y divide-slate-700/40">
+                    <tr className="hover:bg-slate-700/20 transition-colors">
+                      <td className="p-3 font-semibold text-slate-300">Gram</td>
+                      <td className="p-3 text-slate-300">1</td>
+                      <td className="p-3 text-slate-400">International</td>
                     </tr>
-                    <tr className="border-b border-primary-800 hover:bg-dark-700">
-                      <td className="px-3 py-2 font-semibold text-gray-300">Tola</td>
-                      <td className="px-3 py-2 text-gray-300">11.66</td>
-                      <td className="px-3 py-2 text-gray-300">South Asia</td>
+                    <tr className="hover:bg-slate-700/20 transition-colors">
+                      <td className="p-3 font-semibold text-slate-300">Tola</td>
+                      <td className="p-3 text-amber-300 font-medium">11.66</td>
+                      <td className="p-3 text-slate-400">South Asia</td>
                     </tr>
-                    <tr className="border-b border-primary-800 hover:bg-dark-700">
-                      <td className="px-3 py-2 font-semibold text-gray-300">Troy Ounce</td>
-                      <td className="px-3 py-2 text-gray-300">31.10</td>
-                      <td className="px-3 py-2 text-gray-300">International trading</td>
+                    <tr className="hover:bg-slate-700/20 transition-colors">
+                      <td className="p-3 font-semibold text-slate-300">Troy Ounce</td>
+                      <td className="p-3 text-slate-300">31.10</td>
+                      <td className="p-3 text-slate-400">International trading</td>
                     </tr>
-                    <tr className="border-b border-primary-800 hover:bg-dark-700">
-                      <td className="px-3 py-2 font-semibold text-gray-300">Masha</td>
-                      <td className="px-3 py-2 text-gray-300">0.97</td>
-                      <td className="px-3 py-2 text-gray-300">South Asia (detail)</td>
+                    <tr className="hover:bg-slate-700/20 transition-colors">
+                      <td className="p-3 font-semibold text-slate-300">Masha</td>
+                      <td className="p-3 text-slate-300">0.97</td>
+                      <td className="p-3 text-slate-400">South Asia (detail)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
-              <h3 className="text-2xl font-bold text-primary-400">
-                Why Multiple Units Exist
-              </h3>
-              <p className="leading-relaxed">
+              <h3 className="text-lg font-bold text-amber-400">Why Multiple Units Exist</h3>
+              <p>
                 Different regions developed their own weight systems for gold trading over centuries. While the metric system is now standard internationally, many traditional markets continue using their historical units, making conversion essential for global commerce.
               </p>
-
-              <h3 className="text-2xl font-bold text-primary-400">
-                Our Converters
-              </h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>✓ <Link href="/" className="text-primary-400 hover:text-primary-300">Tola to Grams</Link> - The most common conversion</li>
-                <li>✓ <Link href="/grams-to-tola" className="text-primary-400 hover:text-primary-300">Grams to Tola</Link> - Reverse conversion</li>
-                <li>✓ <Link href="/tola-to-masha" className="text-primary-400 hover:text-primary-300">Tola to Masha</Link> - For detailed specifications</li>
+              <h3 className="text-lg font-bold text-amber-400">Our Converters</h3>
+              <ul className="space-y-2">
+                <li>
+                  ✓{" "}
+                  <Link href="/" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
+                    Tola to Grams
+                  </Link>{" "}
+                  – The most common conversion
+                </li>
+                <li>
+                  ✓{" "}
+                  <Link href="/grams-to-tola" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
+                    Grams to Tola
+                  </Link>{" "}
+                  – Reverse conversion
+                </li>
+                <li>
+                  ✓{" "}
+                  <Link href="/tola-to-masha" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
+                    Tola to Masha
+                  </Link>{" "}
+                  – For detailed specifications
+                </li>
               </ul>
             </div>
           </div>
@@ -390,10 +399,10 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 md:py-16 bg-dark-900 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-6">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-5">
@@ -419,9 +428,9 @@ export default function GoldWeightConverter() {
                   a: "It saves time, stops mistakes, and helps you clearly see the real value of your gold.",
                 },
               ].map(({ q, a }) => (
-                <div key={q} className="border-b border-primary-900 pb-5 last:border-0 last:pb-0">
-                  <h3 className="text-primary-400 font-semibold mb-2 text-sm">{q}</h3>
-                  <p className="text-gray-300 leading-relaxed text-sm">{a}</p>
+                <div key={q} className="border-b border-slate-700/40 pb-5 last:border-0 last:pb-0">
+                  <h3 className="text-amber-400 font-semibold mb-2">{q}</h3>
+                  <p className="text-slate-300 leading-relaxed">{a}</p>
                 </div>
               ))}
             </div>
@@ -430,23 +439,23 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Final Thoughts */}
-      <section className="py-12 md:py-16 bg-dark-800 border-b border-primary-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary-400 mb-4">
+          <div className="glass-card p-6 rounded-2xl md:p-8">
+            <h2 className="text-xl md:text-2xl font-bold gradient-text mb-4">
               Final Thoughts: Make Smart Decisions with Confidence
             </h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
+            <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
                 Gold is valuable, and every little detail counts when you're dealing with it. One small mistake in weight conversion can mean paying the wrong price and losing money.
               </p>
               <p>
                 For more guidance, read our{" "}
-                <Link href="/gold-weight-guide" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">
+                <Link href="/gold-weight-guide" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
                   gold weight guide
                 </Link>{" "}
                 or learn{" "}
-                <Link href="/what-is-tola" className="text-primary-400 hover:text-primary-300 underline underline-offset-2">
+                <Link href="/what-is-tola" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
                   what is tola
                 </Link>{" "}
                 to better understand gold measurement in South Asia.
@@ -457,26 +466,38 @@ export default function GoldWeightConverter() {
       </section>
 
       {/* Related Tools */}
-      <section className="py-16 md:py-20 bg-dark-900">
+      <section className="py-8 md:py-12 bg-slate-900">
         <div className="container-max">
-          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-500 mb-10 text-center">
+          <h2 className="text-2xl font-bold gradient-text mb-8 text-center">
             Quick Links to Converters
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <Link href="/" className="p-6 border-2 border-primary-800 rounded-lg hover:border-primary-500 hover:bg-dark-800 transition group">
-              <h3 className="text-lg font-bold text-primary-400 mb-2">Tola → Grams</h3>
-              <p className="text-gray-400 text-sm mb-3">Main converter</p>
-              <span className="text-primary-400 font-bold text-sm">Use Tool →</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <Link
+              href="/"
+              className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group"
+            >
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">
+                Tola → Grams
+              </h3>
+              <p className="text-slate-400 text-sm">Main converter</p>
             </Link>
-            <Link href="/grams-to-tola" className="p-6 border-2 border-primary-800 rounded-lg hover:border-primary-500 hover:bg-dark-800 transition group">
-              <h3 className="text-lg font-bold text-primary-400 mb-2">Grams → Tola</h3>
-              <p className="text-gray-400 text-sm mb-3">Reverse converter</p>
-              <span className="text-primary-400 font-bold text-sm">Use Tool →</span>
+            <Link
+              href="/grams-to-tola"
+              className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group"
+            >
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">
+                Grams → Tola
+              </h3>
+              <p className="text-slate-400 text-sm">Reverse converter</p>
             </Link>
-            <Link href="/tola-to-masha" className="p-6 border-2 border-primary-800 rounded-lg hover:border-primary-500 hover:bg-dark-800 transition group">
-              <h3 className="text-lg font-bold text-primary-400 mb-2">Tola → Masha</h3>
-              <p className="text-gray-400 text-sm mb-3">Detailed measurements</p>
-              <span className="text-primary-400 font-bold text-sm">Use Tool →</span>
+            <Link
+              href="/tola-to-masha"
+              className="glass-card p-6 rounded-2xl hover:border-amber-500/30 transition-colors group"
+            >
+              <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">
+                Tola → Masha
+              </h3>
+              <p className="text-slate-400 text-sm">Detailed measurements</p>
             </Link>
           </div>
         </div>
