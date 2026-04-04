@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     "tola to grams uk, gold rate uk gbp, gold converter uk, precious metals",
   alternates: {
-    canonical: "https://tola-to-grams.com/uk",
+    canonical: "https://tola-to-grams-converter.vercel.app/uk",
   },
 };
 

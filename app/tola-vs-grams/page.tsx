@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Compare tola and grams. Understand the differences, history, and practical usage of both weight units.',
   keywords: 'tola vs grams, weight comparison, traditional vs metric',
   alternates: {
-    canonical: 'https://tola-to-grams.com/tola-vs-grams',
+    canonical: 'https://tola-to-grams-converter.vercel.app/tola-vs-grams',
   },
 };
 

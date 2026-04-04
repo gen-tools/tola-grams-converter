@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tola-to-grams.com'),
+  metadataBase: new URL('https://tola-to-grams-converter.vercel.app'),
   title: {
     default: "Tola to Grams Converter - Free & Accurate",
     template: "%s | Tola Converter"
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   creator: "Tola Converter",
   publisher: "Tola Converter",
   robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://tola-to-grams.com',
+    url: 'https://tola-to-grams-converter.vercel.app',
     siteName: 'Tola to Grams Converter',
     title: 'Tola to Grams Converter - Free & Accurate',
     description: 'Convert tola to grams instantly. 1 tola = 11.6638 grams. Free online converter for gold traders and jewelers.',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description: 'Convert tola to grams instantly. 1 tola = 11.6638 grams. Free tool for gold traders and jewelers.',
   },
   alternates: {
-    canonical: 'https://tola-to-grams.com',
+    canonical: 'https://tola-to-grams-converter.vercel.app',
   },
 };
 
@@ -64,11 +64,11 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'Tola to Grams Converter',
-              url: 'https://tola-to-grams.com',
+              url: 'https://tola-to-grams-converter.vercel.app',
               description: 'Free online tola to grams converter for gold traders and jewelers.',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://tola-to-grams.com/?q={search_term_string}',
+                target: 'https://tola-to-grams-converter.vercel.app/?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),

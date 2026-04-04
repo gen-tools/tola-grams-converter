@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'About Tola to Grams Converter',
   description: 'Learn about our mission to provide accurate, free conversion tools for traditional and modern weight units.',
   alternates: {
-    canonical: 'https://tola-to-grams.com/about',
+    canonical: 'https://tola-to-grams-converter.vercel.app/about',
   },
 };
 

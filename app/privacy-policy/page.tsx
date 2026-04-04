@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Tola to Grams Converter',
   description: 'Read our privacy policy to understand how we protect your data.',
   alternates: {
-    canonical: 'https://tola-to-grams.com/privacy-policy',
+    canonical: 'https://tola-to-grams-converter.vercel.app/privacy-policy',
   },
 };
 

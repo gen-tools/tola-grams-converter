@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     "tola to grams india, gold tola india, gold rate india inr, tola converter",
   alternates: {
-    canonical: "https://tola-to-grams.com/india",
+    canonical: "https://tola-to-grams-converter.vercel.app/india",
   },
 };
 

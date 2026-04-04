@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Learn about tola, the traditional weight unit used in South Asia. History, usage, and conversion to modern metric units.',
   keywords: 'what is tola, tola definition, tola weight, traditional units',
   alternates: {
-    canonical: 'https://tola-to-grams.com/what-is-tola',
+    canonical: 'https://tola-to-grams-converter.vercel.app/what-is-tola',
   },
 };
 

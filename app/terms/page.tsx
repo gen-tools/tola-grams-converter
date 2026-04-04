@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Terms of Service | Tola to Grams Converter',
   description: 'Read our terms of service for using Tola to Grams Converter.',
   alternates: {
-    canonical: 'https://tola-to-grams.com/terms',
+    canonical: 'https://tola-to-grams-converter.vercel.app/terms',
   },
 };
 

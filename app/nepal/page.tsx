@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     "tola to grams nepal, gold tola nepal, gold rate nepal npr, tola converter",
   alternates: {
-    canonical: "https://tola-to-grams.com/nepal",
+    canonical: "https://tola-to-grams-converter.vercel.app/nepal",
   },
 };
 

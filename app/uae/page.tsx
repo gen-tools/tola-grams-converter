@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     "tola to grams uae, gold rate uae aed, dubai gold converter, emirates gold weight",
   alternates: {
-    canonical: "https://tola-to-grams.com/uae",
+    canonical: "https://tola-to-grams-converter.vercel.app/uae",
   },
 };
 

@@ -4,8 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      disallow: '/',
+      allow: '/',
     },
-    sitemap: 'https://tola-to-grams.com/sitemap.xml',
+    sitemap: 'https://tola-to-grams-converter.vercel.app/sitemap.xml',
   };
 }

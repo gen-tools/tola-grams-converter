@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     "tola to gram converter pakistan, tola to gram calculator pakistan, tola to grams pakistan, gold tola to gram pakistan, pakistani tola to grams, how much gram in 1 tola pakistan, 21 tola to grams pakistan",
   alternates: {
-    canonical: "https://tola-to-grams.com/pakistan",
+    canonical: "https://tola-to-grams-converter.vercel.app/pakistan",
   },
 };
 

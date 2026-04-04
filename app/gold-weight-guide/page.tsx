@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Complete guide to gold weights, units, measurements, and conversions for jewelry and precious metals trading.',
   keywords: 'gold weight guide, jewelry weight, gold measurement, conversion guide',
   alternates: {
-    canonical: 'https://tola-to-grams.com/gold-weight-guide',
+    canonical: 'https://tola-to-grams-converter.vercel.app/gold-weight-guide',
   },
 };
 
