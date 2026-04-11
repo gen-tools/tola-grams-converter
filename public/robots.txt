@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tola-to-grams-converter.vercel.app/sitemap.xml
