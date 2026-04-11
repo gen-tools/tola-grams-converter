@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Homepage -->
   <url>
     <loc>https://tola-to-grams-converter.vercel.app/</loc>
     <lastmod>2026-04-05</lastmod>
@@ -11,7 +8,6 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Core Tools -->
   <url>
     <loc>https://tola-to-grams-converter.vercel.app/grams-to-tola</loc>
     <lastmod>2026-04-05</lastmod>
@@ -33,7 +29,6 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Country Pages -->
   <url>
     <loc>https://tola-to-grams-converter.vercel.app/pakistan</loc>
     <lastmod>2026-04-05</lastmod>
@@ -76,7 +71,6 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- Informational Content -->
   <url>
     <loc>https://tola-to-grams-converter.vercel.app/what-is-tola</loc>
     <lastmod>2026-04-05</lastmod>
@@ -98,7 +92,6 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- Legal / Utility -->
   <url>
     <loc>https://tola-to-grams-converter.vercel.app/about</loc>
     <lastmod>2026-04-05</lastmod>
